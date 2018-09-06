@@ -14,5 +14,11 @@ module.exports.autenticar = function(application, req, res) {
     res.render("index", {validacao:erros});
     return
   }
-  res.send('ta tudo ok para a sessão');
+
+  let connection = application.config.dbConnection;
+  let UsuariosDAO = new application.app.models.UsuariosDAO(connection)
+
+  UsuariosDAO.autenticar(dadosForm, req, res);
+
+  // res.send('ta tudo ok para a sessão');
 };

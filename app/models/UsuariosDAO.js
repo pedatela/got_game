@@ -1,6 +1,5 @@
 function UsuariosDAO(connection) {
   this._connection = connection();
-  console.log(connection);
 };
 
 UsuariosDAO.prototype.inserirUsuario = function(usuario){
